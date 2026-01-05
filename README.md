@@ -1,12 +1,12 @@
-# Análisis de Expresión Génica: Reducción de Dimensionalidad y Clustering
+# Análisis de Expresión Génica: Reducción de Dimensionalidad y Clustering ⚕️🧬 
 
 Este proyecto implementa un flujo de trabajo de **Aprendizaje No Supervisado** (Unsupervised Learning) para analizar datos de secuenciación de ARN (RNA-Seq). El objetivo principal es evaluar la capacidad de diferentes algoritmos para distinguir entre 5 tipos distintos de cáncer basándose únicamente en la expresión de 11000 genes, sin utilizar etiquetas previas durante el entrenamiento.
 
-## 📋 Descripción del Proyecto
+## Descripción del Proyecto 📋 
 
 Los datos genómicos suelen tener una alta dimensionalidad (miles de genes), lo que dificulta su visualización y análisis. Este script compara técnicas lineales y no lineales para reducir estas dimensiones y posteriormente aplica algoritmos de agrupamiento para validar si los patrones matemáticos coinciden con los diagnósticos biológicos reales.
 
-### Dataset
+### Dataset 
 El conjunto de datos (`rna_cancer`) contiene muestras de pacientes diagnosticados con cinco tipos de cáncer:
 * **BRCA:** Carcinoma invasivo de mama.
 * **COAD:** Adenocarcinoma de colon.
@@ -14,7 +14,7 @@ El conjunto de datos (`rna_cancer`) contiene muestras de pacientes diagnosticado
 * **LUAD:** Adenocarcinoma de pulmón.
 * **PRAD:** Adenocarcinoma de próstata.
 
-## 🛠️ Metodología
+## Metodología 🛠️ 
 
 El análisis se divide en cuatro fases principales:
 
@@ -36,7 +36,7 @@ Se comparan cuatro algoritmos distintos para proyectar los datos de 800 dimensio
 ### 4. Validación Biológica
 * Se utiliza una matriz de confusión para cruzar los clusters matemáticos generados por K-Means con las etiquetas reales de los tipos de cáncer.
 
-## 📦 Requisitos e Instalación
+## Requisitos e Instalación 📦 
 
 El código está desarrollado en **R**. Se requiere la instalación de las siguientes librerías (el script incluye una rutina de instalación automática):
 
@@ -46,3 +46,8 @@ install.packages(c("tidyverse", "uwot", "factoextra", "ggplot2", "BiocManager"))
 
 # Librería Bioconductor
 BiocManager::install("RDRToolbox")
+````
+## Estructura del Repositorio 📂 
+`nosupervisado_analysis.R´: Código fuente completo en R.
+`rna_cancer/´: carpeta con los archivos `data.csv´ (Matriz de expresión génica) y `labels.csv´ (etiquetas reales)
+`plots/´: Carpeta con gráficos de los métodos de clusterización.
