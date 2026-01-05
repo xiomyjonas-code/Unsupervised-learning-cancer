@@ -34,20 +34,19 @@ library(RDRToolbox)
 #### ---- 2. Carga y Preprocesamiento de Datos ---- ####
 
 # Lectura de datos crudos
-data.raw   <- read.csv('data/rna_cancer/data.csv')
+data.raw   <- read.csv('data/rna_cancer/data_8000.csv')
 labels.raw <- read.csv('data/rna_cancer/labels.csv')
 
-# Convertir todo a numérico primero (quitando la primera columna de nombres)
-# Asumiendo que la col 1 es (ID/SAMPLE) y el resto son genes
-data_full <- data.frame(sapply(data.raw[, -1], as.numeric)) 
+# Convertir todo a numérico primero 
+data_num <- data.frame(sapply(data.raw, as.numeric)) 
 
 # 2.1. Análisis Exploratorio de Valores Nulos y Ceros
 cat("\n--- Análisis de Calidad de Datos ---\n")
-cat("¿Existen valores NA?:", anyNA(data_full), "\n")
-cat("¿Existen valores 0?: ", any(data_full == 0), "\n")
+cat("¿Existen valores NA?:", anyNA(data_num), "\n")
+cat("¿Existen valores 0?: ", any(data_num == 0), "\n")
 
 # Conteo de ceros por columna
-zero_counts <- colSums(data_full == 0)
+zero_counts <- colSums(data_num == 0)
 
 # Visualización de la dispersión (Sparseness)
 zero_df <- data.frame(Variable = names(zero_counts), Zeros = as.numeric(zero_counts))
@@ -59,21 +58,6 @@ ggplot(zero_df, aes(x = Variable, y = Zeros, fill = Variable)) +
        y = "Conteo de Ceros") +
   theme_minimal() +
   theme(legend.position = "none", axis.text.x = element_blank()) # Se ocultan etiquetas eje X por legibilidad
-
-# FILTRADO POR VARIANZA 
-# Calculamos la varianza de cada columna (cada gen)
-varianzas <- apply(data_full, 2, var)
-
-# Ordenar los genes de mayor a menor varianza y usamos los índices
-# Se puede probar con 5000, 11000 (considerando que el data.raw contiene más de 20000 genes)  
-top_genes_index <- order(varianzas, decreasing = TRUE)[1:11000] 
-
-# Crear el dataset final solo con esos genes
-data_num <- data_full[, top_genes_index]
-cat("Dimensiones finales tras filtrado:", dim(data_num)) 
-
-#cat("¿Existen valores NA?:", anyNA(data_num), "\n")
-#cat("¿Existen valores 0?: ", any(data_num == 0), "\n")
 
 #### ---- 3. Reducción de Dimensionalidad ---- ####
 
