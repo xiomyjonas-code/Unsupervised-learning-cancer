@@ -49,5 +49,5 @@ BiocManager::install("RDRToolbox")
 ````
 ## Estructura del Repositorio 📂 
 * `nosupervisado_analysis.R` : Código fuente completo en R.
-* `rna_cancer/`: carpeta con los archivos `data.csv` (Matriz de expresión génica) y `labels.csv` (etiquetas reales)
+* `rna_cancer/`: carpeta con los archivos `data_8000.csv` (Matriz de expresión génica) y `labels.csv` (etiquetas reales)
 * `plots/`: Carpeta con gráficos de los métodos de clusterización.
