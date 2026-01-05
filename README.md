@@ -48,6 +48,6 @@ install.packages(c("tidyverse", "uwot", "factoextra", "ggplot2", "BiocManager"))
 BiocManager::install("RDRToolbox")
 ````
 ## Estructura del Repositorio 📂 
-`nosupervisado_analysis.R´: Código fuente completo en R.
-`rna_cancer/´: carpeta con los archivos `data.csv´ (Matriz de expresión génica) y `labels.csv´ (etiquetas reales)
-`plots/´: Carpeta con gráficos de los métodos de clusterización.
+* `nosupervisado_analysis.R` : Código fuente completo en R.
+* `rna_cancer/`: carpeta con los archivos `data.csv` (Matriz de expresión génica) y `labels.csv` (etiquetas reales)
+* `plots/`: Carpeta con gráficos de los métodos de clusterización.
