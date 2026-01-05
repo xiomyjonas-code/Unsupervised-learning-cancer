@@ -23,7 +23,7 @@ El análisis se divide en cuatro fases principales:
 * Análisis de **Sparseness**: Evaluación de la calidad de los datos mediante el conteo de valores cero (genes no expresados) por muestra.
 
 ### 2. Reducción de Dimensionalidad
-Se comparan cuatro algoritmos distintos para proyectar los datos de 800 dimensiones a un espacio 2D:
+Se comparan cuatro algoritmos distintos para proyectar los datos de 8000 dimensiones a un espacio 2D:
 * **Isomap:** Mapeo isométrico que preserva la geometría geodésica (no lineal).
 * **PCA (Principal Component Analysis):** Método lineal que maximiza la varianza explicada.
 * **MDS (Multidimensional Scaling):** Preserva las distancias por pares (métrica Manhattan).
